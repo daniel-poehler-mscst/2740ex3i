@@ -21,6 +21,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
 import java.awt.event.FocusListener;
+import java.text.NumberFormat;
 import java.awt.event.FocusEvent;
 
 public class ExamForm extends JFrame implements ActionListener, ListSelectionListener, FocusListener {
@@ -193,7 +194,8 @@ public class ExamForm extends JFrame implements ActionListener, ListSelectionLis
 			resultLabel.setText("Invalid response #" + Integer.toString(invalid + 1));
 			responsesList.setSelectedIndex(invalid);
 		} else {
-			resultLabel.setText("Total correct: " + (exam.totalCorrect()));
+			String str = String.format("%.0f", exam.totalCorrect());
+			resultLabel.setText("Total correct: " + str);
 		}		
 	}
 	protected void do_calcIncorrectButton_actionPerformed(ActionEvent e) {
